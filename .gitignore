@@ -1,0 +1,19 @@
+#CMake build and cache files, directories
+CMakeFiles/
+Makefile
+*.cmake
+CMakeCache.txt
+
+#Binaries
+bin/
+build/
+
+#Editor
+.vs/
+.vscode/
+
+#Logs
+*.log
+
+
+
