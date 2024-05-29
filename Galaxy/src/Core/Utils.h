@@ -4,9 +4,9 @@
 namespace Galaxy
 {
     template<typename T>
-    using Scoped = std::unique_ptr<T>;
+    using Unique = std::unique_ptr<T>;
     template<typename T, typename ... Args>
-    constexpr Scoped<T> CreateScoped(Args&& ... args)
+    constexpr Unique<T> CreateUnique(Args&& ... args)
     {
         return std::make_unique<T>(std::forward<Args>(args)...);
     }

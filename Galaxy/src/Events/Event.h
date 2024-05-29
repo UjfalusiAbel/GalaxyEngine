@@ -4,12 +4,6 @@
 
 namespace Galaxy
 {
-    enum Action 
-    {
-        Pressed = 0,
-        Released = 1
-    };
-
     /// @brief Event base class where all even types inherit from
     class Event
     {

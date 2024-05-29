@@ -12,7 +12,6 @@ int main(int argc, char* argv[])
     Galaxy::Application* app = Galaxy::CreateApplication();
     app->Run();
 
-    delete logger;
     delete app;
     return 0;
 }

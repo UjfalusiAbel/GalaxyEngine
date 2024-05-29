@@ -3,9 +3,9 @@
 namespace Galaxy
 {
 
-    Logger* Logger::instance = nullptr;
+    Unique<Logger> Logger::instance;
 
-    Logger::Logger() :coreLogger()
+    Logger::Logger() :coreLogger(), isInitialised(false)
     {
     }
 
@@ -13,10 +13,10 @@ namespace Galaxy
     {
         if (instance == NULL)
         {
-            instance = new Logger();
+            instance.reset(new Logger());
         }
 
-        return instance;
+        return instance.get();
     }
 
     void Logger::Init()
@@ -37,11 +37,6 @@ namespace Galaxy
     Reference<spdlog::logger>& Logger::GetCoreLogger()
     {
         return this->coreLogger;
-    }
-
-    Logger::~Logger()
-    {
-        delete instance;
     }
 
 }
