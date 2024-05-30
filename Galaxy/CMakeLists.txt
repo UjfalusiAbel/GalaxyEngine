@@ -27,7 +27,7 @@ target_compile_definitions(GalaxyEngine PRIVATE GALAXY_ENGINE_EXPORTS)
 find_package(spdlog CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 
-target_link_libraries(GalaxyEngine PRIVATE spdlog::spdlog)
+target_link_libraries(GalaxyEngine PUBLIC spdlog::spdlog)
 target_link_libraries(GalaxyEngine PRIVATE glfw)
 
 set_target_properties(GalaxyEngine PROPERTIES LINK_FLAGS "-Wl,-e,main")

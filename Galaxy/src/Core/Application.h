@@ -1,5 +1,10 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "Log.h"
+#include "../Math/Vector2D.h"
+#include "../Events/KeyboardEvent.h"
+#include "../Events/MouseEvent.h"
 
 int main(int argc, char* argv[]);
 

@@ -34,9 +34,9 @@ namespace Galaxy
         /// @param info KeyInfo, stores information related to the key being subjected to the event
         KeyboardEvent(KeyInfo info);
         EVENT_TYPE_TO_STRING(Keyboard)
-            /// @brief Creates string information for debug purposes about data related to KeyboardEvent, showing KeyCode and Action 
-            /// @return information for logger, std::string
-            std::string ToString() const override;
+        /// @brief Creates string information for debug purposes about data related to KeyboardEvent, showing KeyCode and Action 
+        /// @return information for logger, std::string
+        std::string ToString() const override;
         /// @brief Gets code of KeyboardEvent
         /// @return keycode of key activated on, KeyCode enum
         KeyCode GetKeyCode() const;

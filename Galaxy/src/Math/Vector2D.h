@@ -29,8 +29,20 @@ namespace Galaxy
         /// @brief Sets the y component of a 2 dimensional vector
         void SetY(float y);
         /// @brief Creates string information for debug purposes about data in vector, showing both the x and y component
-        /// @return information for logger, std::string
+        /// @return Information for logger, std::string
         std::string ToString() const;
+        /// @brief Operator to add two 2 dimensional vectors together component wise
+        /// @param other vector to be added to this vector, Vector2D
+        /// @return New vector with its components being the sum of the components in this and other, Vector2D 
+        Vector2D operator+(Vector2D other);
+        /// @brief Operator to subtract a 2 dimensional vector from this vector component wise
+        /// @param other vector to be subtracted from to this vector, Vector2D
+        /// @return New vector with its components being the difference of the components between this and other, Vector2D 
+        Vector2D operator-(Vector2D other);
+        /// @brief Operator to multiply a 2 dimensional vector with a scalar value
+        /// @param a scalar value to multiply components of the vector with, float
+        /// @return New vector with its components being the components of this multiplied by a
+        Vector2D operator*(float a);
         ~Vector2D() = default;
     };
 }

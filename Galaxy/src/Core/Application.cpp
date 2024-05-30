@@ -4,12 +4,12 @@ namespace Galaxy
 {
     Application::Application()
     {
-
+        Galaxy::Logger* logger = Galaxy::Logger::GetInstance();
+        logger->Init();
     }
 
     void Application::Run()
     {
-        std::cout << "Engine running\n";
     }
 
     Application::~Application()

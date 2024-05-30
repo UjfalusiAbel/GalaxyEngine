@@ -31,8 +31,26 @@ namespace Galaxy
     std::string Vector2D::ToString() const
     {
         std::stringstream ss;
-        ss << "x: " << this->x << " ; ";
-        ss << "y: " << this->y << " ; ";
+        ss << "(x: " << this->x << " , ";
+        ss << "y: " << this->y << " ) ";
         return ss.str();
+    }
+
+    Vector2D Vector2D::operator+(Vector2D other)
+    {
+        Vector2D added(other.GetX() + this->x, other.GetY() + this->y);
+        return added;
+    }
+
+    Vector2D Vector2D::operator-(Vector2D other)
+    {
+        Vector2D subtracted(other.GetX() - this->x, other.GetY() - this->y);
+        return subtracted;
+    }
+
+    Vector2D Vector2D::operator*(float a)
+    {
+        Vector2D multiplied(this->x * a, this->y * a);
+        return multiplied;
     }
 }
