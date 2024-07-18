@@ -1,7 +1,6 @@
 #CMake build and cache files, directories
 CMakeFiles/
 Makefile
-*.cmake
 CMakeCache.txt
 
 #Binaries
