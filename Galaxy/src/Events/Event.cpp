@@ -1,9 +1,12 @@
-#include "Event.h"
+#include "Event.hpp"
 
 namespace Galaxy
 {
-    EventType Event::GetEventType() const
+    namespace Events
     {
-        return this->eventType;
+        EventType Event::GetEventType() const
+        {
+            return this->eventType;
+        }
     }
 }

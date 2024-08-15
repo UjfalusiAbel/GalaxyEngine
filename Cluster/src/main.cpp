@@ -1,6 +1,6 @@
 #include "Sandbox.h"
 
-Galaxy::Application* Galaxy::CreateApplication()
+Galaxy::Core::Application* Galaxy::Core::CreateApplication()
 {
     auto app = new Sandbox();
     return app;

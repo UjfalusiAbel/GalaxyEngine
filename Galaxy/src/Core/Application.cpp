@@ -1,19 +1,24 @@
-#include "Application.h"
+#include "Application.hpp"
 
 namespace Galaxy
 {
-    Application::Application()
+    namespace Core
     {
-        Galaxy::Logger* logger = Galaxy::Logger::GetInstance();
-        logger->Init();
-    }
+        Application::Application()
+        {
+            Logger* logger = Logger::GetInstance();
+            logger->Init();
+            Math::Vector2D vec(-3,2);
+            GX_CORE_TRACE(vec.ToString());
+        }
 
-    void Application::Run()
-    {
-    }
+        void Application::Run()
+        {
+        }
 
-    Application::~Application()
-    {
-        std::cout << "App destroyed";
+        Application::~Application()
+        {
+            std::cout << "App destroyed";
+        }
     }
 }

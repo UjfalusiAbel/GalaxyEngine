@@ -1,7 +1,7 @@
 #pragma once
-#include "Galaxy.h"
+#include "Galaxy.hpp"
 
-class Sandbox : public Galaxy::Application
+class Sandbox : public Galaxy::Core::Application
 {
 public:
     Sandbox();

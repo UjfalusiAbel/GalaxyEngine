@@ -3,7 +3,11 @@ project(Galaxy VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/)
+
+#Set source directories for engine library and editor
+set(GALAXY_SRC_DIR ${PROJECT_SOURCE_DIR}/Galaxy/src)
+set(CLUSTER_SRC_DIR ${PROJECT_SOURCE_DIR}/Cluster/src)
 
 include(${CMAKE_SOURCE_DIR}/external/vcpkg/scripts/buildsystems/vcpkg.cmake)
 

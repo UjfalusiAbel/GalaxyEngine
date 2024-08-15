@@ -1,10 +1,10 @@
-#include "Application.h"
+#include "Application.hpp"
 
-extern Galaxy::Application* Galaxy::CreateApplication();
+extern Galaxy::Core::Application* Galaxy::Core::CreateApplication();
 
 int main(int argc, char* argv[])
 {
-    Galaxy::Application* app = Galaxy::CreateApplication();
+    Galaxy::Core::Application* app = Galaxy::Core::CreateApplication();
     app->Run();
     delete app;
     return 0;

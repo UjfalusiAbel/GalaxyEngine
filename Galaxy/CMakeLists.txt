@@ -1,13 +1,19 @@
 cmake_minimum_required(VERSION 3.12)
 project(GalaxyEngine VERSION 0.1.0 LANGUAGES CXX)
 
-file(GLOB_RECURSE GALAXY_ENGINE_SRC
-    "*.h"
-    "*.cpp"
-)
-
 set(CMAKE_CXX_STANDARD 20)
 
+include(${GALAXY_SRC_DIR}/Core/Core.cmake)
+include(${GALAXY_SRC_DIR}/Events/Events.cmake)
+include(${GALAXY_SRC_DIR}/Math/Math.cmake)
+
+set(GALAXY_ENGINE_SRC "")
+
+list(APPEND GALAXY_ENGINE_SRC ${CORE_SOURCES} 
+                       ${EVENT_SOURCES} 
+                       ${MATH_SOURCES} 
+                       ${GALAXY_SRC_DIR}/Galaxy.hpp)
+message(${GALAXY_ENGINE_SRC})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Galaxy/bin/${CMAKE_BUILD_TYPE})
 
 include(CMakePrintHelpers)

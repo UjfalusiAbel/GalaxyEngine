@@ -12,6 +12,7 @@ build/
 .vscode/
 
 #Logs
+Logs/
 *.log
 
 #External
