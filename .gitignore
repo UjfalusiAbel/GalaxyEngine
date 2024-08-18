@@ -15,9 +15,6 @@ build/
 Logs/
 *.log
 
-#External
-external/
-
 #Packages
 vcpkg_installed/
 
