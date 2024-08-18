@@ -9,23 +9,19 @@ namespace Galaxy
         enum class EventType
         {
             None = 0,
+            KeyEvent = 1,
+            MouseEvent = 2,
+            WindowEvent = 3,
+            //WindowResize,
+            //WindowClose,
+            //WindowBringForward,
+            //WindowSendBackward,
+            //WindowMove, 
+            AppEvent = 4
+            //AppUpdate,
+            //AppRender,
 
-            WindowResize,
-            WindowClose,
-            WindowBringForward,
-            WindowSendBackward,
-            WindowMove,
 
-            AppUpdate,
-            AppRender,
-
-            KeyPressed,
-            KeyReleased,
-
-            MouseButtonDown,
-            MouseButtonUp,
-            MouseDragged,
-            MouseScrolled
         };
     }
 }
