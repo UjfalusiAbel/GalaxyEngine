@@ -9,6 +9,5 @@ set(EVENT_SOURCES ${GALAXY_EVENTS_SRC_DIR}/Event.cpp
                   ${GALAXY_EVENTS_SRC_DIR}/MouseCodes.hpp
                   ${GALAXY_EVENTS_SRC_DIR}/MouseEvent.cpp
                   ${GALAXY_EVENTS_SRC_DIR}/MouseEvent.hpp
-                  ${GALAXY_EVENTS_SRC_DIR}/EventListeners/IEventListener.hpp
-                  ${GALAXY_EVENTS_SRC_DIR}/EventListeners/MouseEventListener.hpp
-                  ${GALAXY_EVENTS_SRC_DIR}/EventListeners/MouseEventListener.cpp)
+                  ${GALAXY_EVENTS_SRC_DIR}/IEventListener.cpp
+                  ${GALAXY_EVENTS_SRC_DIR}/IEventListener.hpp)

@@ -1,4 +1,4 @@
-function(set_compiler_warnings TARGET AS_ERRORS)
+function(set_compiler_warnings TARGET ENABLED_AS_ERRORS)
     set(GCC_WARNINGS -Wall -Wextra)
     set(CLANG_WARNINGS ${GCC_WARNINGS})
     set(MSVC_WARNINGS /W4 /permissive-)
