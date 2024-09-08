@@ -33,7 +33,7 @@ target_link_libraries(GalaxyEngine PRIVATE nlohmann_json::nlohmann_json)
 # target_link_libraries(GalaxyEngine PRIVATE cxxopts::cxxopts)
 
 if(ENABLE_WARNINGS_GALAXY)
-    set_compiler_warnings(GalaxyEngine TRUE)
+    set_compiler_warnings(GalaxyEngine OFF)
 endif()
 
 set_target_properties(GalaxyEngine PROPERTIES LINK_FLAGS "-Wl,-e,main")

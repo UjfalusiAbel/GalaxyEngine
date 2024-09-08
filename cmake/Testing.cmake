@@ -1,0 +1,11 @@
+function(add_testing GALAXY_ON CLUSTER_ON)
+    if(GALAXY_ON)
+        message("GalaxyEngine tests are on, building tests ...")
+        add_subdirectory(${PROJECT_SOURCE_DIR}/Tests/GalaxyEngineTests)
+    endif()
+
+    if(CLUSTER_ON)
+        message("Cluster tests are on, building tests ...")
+        add_subdirectory(${PROJECT_SOURCE_DIR}/Tests/ClusterTests)
+    endif()
+endfunction()

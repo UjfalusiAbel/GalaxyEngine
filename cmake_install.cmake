@@ -46,6 +46,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/run/media/ujfalusiabel/7B23FAFD32BA08AE/Munka/Projektek/GalaxyEngine/Galaxy/cmake_install.cmake")
   include("/run/media/ujfalusiabel/7B23FAFD32BA08AE/Munka/Projektek/GalaxyEngine/Cluster/cmake_install.cmake")
+  include("/run/media/ujfalusiabel/7B23FAFD32BA08AE/Munka/Projektek/GalaxyEngine/Tests/GalaxyEngineTests/cmake_install.cmake")
+  include("/run/media/ujfalusiabel/7B23FAFD32BA08AE/Munka/Projektek/GalaxyEngine/Tests/ClusterTests/cmake_install.cmake")
 
 endif()
 
