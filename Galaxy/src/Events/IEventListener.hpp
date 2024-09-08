@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  Event.hpp                                                             */
+/*  IEventListener.hpp                                                    */
 /**************************************************************************/
 /* This file is part of Galaxy Engine https://github.com/UjfalusiAbel/GalaxyEngine */
 /*
@@ -19,31 +19,34 @@
 
 #pragma once
 
-#include "EventType.hpp"
+#include "Event.hpp"
+#include "../Core/Utils.hpp"
+#include <vector>
+#include <functional>
+#include <stdexcept>
 
 namespace Galaxy
 {
     namespace Events
     {
-        /// @brief Event base class where all even types inherit from
-        class Event
+        /// @brief Event listener interface.
+        /// @brief Base class to handling all events, all listeners must implement it
+        class IEventListener
         {
         private:
-            EventType eventType;
-            bool wasHandled = false;
+            bool currentlyIsListening;
         public:
-            /// @brief Gets the type of the event that occurred
-            /// @return type of the event, EventType : enum
-            EventType GetEventType() const;
-            /// @brief Virtual function that returns name of the even. Will be implemented by derived classes.
-            /// @return name of the event, std::string
-            virtual const std::string GetEventName() const = 0;
-            /// @brief Virtual function creating string information for logger. Will be implemented by derived classes.
-            /// @return information for logger, std::string
-            virtual std::string ToString() const = 0;
-            virtual ~Event() = default;
+            /// @brief Checks if the listener is active at the moment and is listening to events
+            /// @return state of current listener, boolean
+            bool CheckIfListening() const;
+            /// @brief After call, the listener starts listening to events
+            /// @throws std::runtime_error if listener is already active
+            void StartListening();
+            /// @brief After call, the listener stops listening to events
+            /// @throws std::runtime_error if listener is already inactive
+            void StopListening();
+            /// @brief Virtual function to override in different listeners
+            virtual void UpdateListener() = 0;
         };
-
-        #define EVENT_TYPE_TO_STRING(type) virtual const std::string GetEventName() const override { return #type; }
     }
 }

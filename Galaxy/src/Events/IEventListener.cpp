@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  Event.hpp                                                             */
+/*  IEventListener.cpp                                                    */
 /**************************************************************************/
 /* This file is part of Galaxy Engine https://github.com/UjfalusiAbel/GalaxyEngine */
 /*
@@ -17,33 +17,34 @@
  * For commercial inquiries, please contact: abelujfalusi4@gmail.com or visit ujfalusiabel.fly.dev
  */
 
-#pragma once
 
-#include "EventType.hpp"
+#include "IEventListener.hpp"
 
 namespace Galaxy
 {
     namespace Events
     {
-        /// @brief Event base class where all even types inherit from
-        class Event
+        bool IEventListener::CheckIfListening() const
         {
-        private:
-            EventType eventType;
-            bool wasHandled = false;
-        public:
-            /// @brief Gets the type of the event that occurred
-            /// @return type of the event, EventType : enum
-            EventType GetEventType() const;
-            /// @brief Virtual function that returns name of the even. Will be implemented by derived classes.
-            /// @return name of the event, std::string
-            virtual const std::string GetEventName() const = 0;
-            /// @brief Virtual function creating string information for logger. Will be implemented by derived classes.
-            /// @return information for logger, std::string
-            virtual std::string ToString() const = 0;
-            virtual ~Event() = default;
-        };
+            return this->currentlyIsListening;
+        }
 
-        #define EVENT_TYPE_TO_STRING(type) virtual const std::string GetEventName() const override { return #type; }
+        void IEventListener::StartListening()
+        {
+            if (this->currentlyIsListening)
+            {
+                throw std::runtime_error("Event listener is already actived.");
+            }
+            this->currentlyIsListening = true;
+        }
+
+        void IEventListener::StopListening()
+        {
+            if (!this->currentlyIsListening)
+            {
+                throw std::runtime_error("Event listener is already deactived.");
+            }
+            this->currentlyIsListening = false;
+        }
     }
 }
