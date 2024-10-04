@@ -20,7 +20,7 @@
 #pragma once
 
 #include "Event.hpp"
-#include "../Core/Utils.hpp"
+#include <Core/Utils.hpp>
 #include <vector>
 #include <functional>
 #include <stdexcept>

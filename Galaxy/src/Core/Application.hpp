@@ -2,9 +2,9 @@
 #include <iostream>
 #include <vector>
 #include "Log.hpp"
-#include "../Math/Vector2D.hpp"
-#include "../Events/KeyboardEvent.hpp"
-#include "../Events/MouseEvent.hpp"
+#include <Math/Vector2D.hpp>
+#include <Events/KeyboardEvent.hpp>
+#include <Events/MouseEvent.hpp>
 
 int main(int argc, char* argv[]);
 
@@ -17,7 +17,7 @@ namespace Galaxy
         public:
             Application();
             virtual ~Application();
-            void Run();
+            virtual void Run() = 0;
 
         private:
             friend int ::main(int argc, char* argv[]);

@@ -2,3 +2,4 @@
 CTestTestfile.cmake
 DartConfiguration.tcl
 *include.cmake
+*c_tests.cmake
