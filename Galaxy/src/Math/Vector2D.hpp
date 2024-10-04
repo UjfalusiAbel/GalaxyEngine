@@ -45,6 +45,10 @@ namespace Galaxy
             /// @param a scalar value to multiply components of the vector with, float
             /// @return New vector with its components being the components of this multiplied by a
             Vector2D operator*(float a);
+            /// @brief Operator to check if 2 vectors are equal
+            /// @param other the other vector to check this against
+            /// @return true if they are equal mathematically, false if not
+            bool operator==(const Vector2D other);
             ~Vector2D() = default;
         };
     }

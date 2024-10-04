@@ -6,4 +6,5 @@ class Sandbox : public Galaxy::Core::Application
 public:
     Sandbox();
     ~Sandbox();
+    void Run() override;
 };

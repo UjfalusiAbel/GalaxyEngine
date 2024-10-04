@@ -23,11 +23,7 @@ namespace Galaxy
 {
     namespace Events
     {
-        MouseInfo::MouseInfo(MouseCode code, MouseAction action) :code(code), action(action)
-        {
-        }
-
-        MouseButtonInfo::MouseButtonInfo(MouseCode code, MouseAction action, Math::Vector2D mousePosition) :MouseInfo(code, action), mousePosition(mousePosition)
+        MouseInfo::MouseInfo(MouseCode code, MouseAction action, Math::Vector2D mousePosition) :code(code), action(action), mousePosition(mousePosition)
         {
         }
 
@@ -45,28 +41,26 @@ namespace Galaxy
             return this->info.action;
         }
 
-        MouseButtonEvent::MouseButtonEvent(MouseCode code, MouseAction action, Math::Vector2D mousePosition) :MouseEvent(MouseButtonInfo(code, action, mousePosition))
+        MouseButtonEvent::MouseButtonEvent(MouseCode code, MouseAction action, Math::Vector2D mousePosition) :MouseEvent(MouseInfo(code, action, mousePosition))
         {
         }
 
-        MouseButtonEvent::MouseButtonEvent(MouseButtonInfo info) :MouseEvent(info)
+        MouseButtonEvent::MouseButtonEvent(MouseInfo info) :MouseEvent(info)
         {
         }
 
         Math::Vector2D MouseButtonEvent::GetMousePosition() const
         {
-            const MouseButtonInfo* bInfo = dynamic_cast<const MouseButtonInfo*>(&info);
-            return bInfo->mousePosition;
+            return this->info.mousePosition;
         }
 
         std::string MouseButtonEvent::ToString() const
         {
-            const MouseButtonInfo* bInfo = dynamic_cast<const MouseButtonInfo*>(&info);
             std::stringstream ss;
             std::string actions[5] = { "button pressed", "button released", "scrolled","moved","dragged" };
-            ss << "Mouse event occured with mouse code " << bInfo->code;
-            ss << " with mouse action " << actions[(int)(bInfo->action)];
-            ss << " and with mouse position " << bInfo->mousePosition.ToString();
+            ss << "Mouse event occured with mouse code " << this->info.code;
+            ss << " with mouse action " << actions[(int)(this->info.action)];
+            ss << " and with mouse position " << this->info.mousePosition.ToString();
             return ss.str();
         }
     }

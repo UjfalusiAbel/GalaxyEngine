@@ -25,9 +25,8 @@ namespace Galaxy
 {
     namespace Events
     {
-        using MouseCode = uint16_t;
         ///@brief GLFW button codes for mouse
-        enum :MouseCode
+        enum MouseCode
         {
             //From glfw3.h
             GLFW_MOUSE_BUTTON_1 = 0,

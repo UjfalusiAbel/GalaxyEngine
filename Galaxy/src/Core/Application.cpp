@@ -12,10 +12,6 @@ namespace Galaxy
             GX_CORE_TRACE(vec.ToString());
         }
 
-        void Application::Run()
-        {
-        }
-
         Application::~Application()
         {
             std::cout << "App destroyed";

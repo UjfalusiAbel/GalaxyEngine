@@ -21,11 +21,11 @@
 
 #include "Event.hpp"
 #include "MouseCodes.hpp"
-#include "../Math/Vector2D.hpp"
 #include <string>
 #include <sstream>
 #include <exception>
-#include "../Core/Utils.hpp"
+#include <Core/Utils.hpp>
+#include <Math/Vector2D.hpp>
 
 namespace Galaxy
 {
@@ -48,32 +48,19 @@ namespace Galaxy
         class MouseInfo
         {
             friend MouseEvent;
+            friend MouseButtonEvent;
         protected:
             MouseCode code;
             MouseAction action;
+            Math::Vector2D mousePosition;
         public:
             MouseInfo() = default;
             /// @brief Creates a MouseInfo with given MouseCode, Action and Vector2D mousePosition
             /// @param code MouseCode, GLFW mousecode storing the mousebutton to which the action is related
             /// @param action Action, stores if the mousebutton was pressed or released, scrolled, moved, dragged
-            MouseInfo(MouseCode code, MouseAction action);
-            virtual ~MouseInfo() = default;
-        };
-
-        /// @brief Stores information about mouse button used, mouse action performed and current mouse position on screen. Used in MouseButtonEvent
-        class MouseButtonInfo :public MouseInfo
-        {
-            friend MouseButtonEvent;
-        private:
-            Math::Vector2D mousePosition;
-        public:
-            MouseButtonInfo() = default;
-            /// @brief Creates a MouseInfo with given MouseCode, Action and Vector2D mousePosition
-            /// @param code MouseCode, GLFW mousecode storing the mousebutton to which the action is related
-            /// @param action Action, stores if the mousebutton was pressed or released, scrolled, moved, dragged
             /// @param mousePosition Vector2D, position of mouse when button action occured
-            MouseButtonInfo(MouseCode code, MouseAction action, Math::Vector2D mousePosition);
-            ~MouseButtonInfo() = default;
+            MouseInfo(MouseCode code, MouseAction action, Math::Vector2D mousePosition);
+            virtual ~MouseInfo() = default;
         };
 
         /// @brief Exception thrown when MouseAction option chosen is invalid for given type of event for mouse
@@ -114,7 +101,7 @@ namespace Galaxy
             MouseButtonEvent(MouseCode code, MouseAction action, Math::Vector2D mousePosition);
             /// @brief Creates a MouseEvent with given info
             /// @param info Mouseinfo, stores information related to the mouse beeing the subject of the event
-            MouseButtonEvent(MouseButtonInfo info);
+            MouseButtonEvent(MouseInfo info);
             EVENT_TYPE_TO_STRING(MouseButton);
             /// @brief Creates string information for debug purposes about data related to MouseButtonEvent, showing mouseCode, mouseAction and mousePosition
             /// @return information for logger, std::string

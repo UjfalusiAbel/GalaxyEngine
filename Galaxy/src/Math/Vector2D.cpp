@@ -55,5 +55,10 @@ namespace Galaxy
             Vector2D multiplied(this->x * a, this->y * a);
             return multiplied;
         }
+
+        bool Vector2D::operator==(Vector2D other)
+        {
+            return this->x == other.x && this->y == other.y;
+        }
     }
 }
